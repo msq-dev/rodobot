@@ -7,7 +7,6 @@
   },
   "main": "bot.js",
   "scripts": {
-    "postinstall": "npm run build",
     "start": "node bot.js",
     "dev": "nodemon bot.js"
   },
