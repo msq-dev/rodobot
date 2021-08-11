@@ -1,4 +1,5 @@
 require("dotenv").config()
+const PORT = process.env.PORT || 3000
 
 const Discord = require("discord.js")
 const client = new Discord.Client({
@@ -6,7 +7,7 @@ const client = new Discord.Client({
 })
 
 client.on("ready", () => {
-  console.log("Los geyts")
+  console.log(`Los geyts auf Port ${ PORT }`)
 })
 
 client.on("messageCreate", msg => {
