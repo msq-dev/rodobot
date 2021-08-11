@@ -1,5 +1,4 @@
 require("dotenv").config()
-const PORT = process.env.PORT || 3000
 
 const Discord = require("discord.js")
 const client = new Discord.Client({
@@ -7,7 +6,7 @@ const client = new Discord.Client({
 })
 
 client.on("ready", () => {
-  console.log(`Los geyts auf Port ${ PORT }`)
+  console.log(`Los geyts`)
 })
 
 client.on("messageCreate", msg => {
@@ -32,7 +31,6 @@ function reactToMessage(message) {
   try {
     message.channel.send(botReplies[randomReply])
     message.react("🍆")
-
   } catch(err) {
     console.error(err)
   }
