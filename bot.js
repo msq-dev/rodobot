@@ -9,14 +9,6 @@ client.on("ready", () => {
   console.log("Los geyts")
 })
 
-const botReplies = [
-  "ooh, will you look at that 🤩",
-  "nice, i like that",
-  "yummy",
-  "gimme more 🤤",
-  "https://www.youtube.com/watch?v=_6FBfAQ-NDE"
-]
-
 client.on("messageCreate", msg => {
   if (msg.content.includes("microsoft")) {
     reactToMessage(msg)
@@ -27,9 +19,22 @@ client.on("messageCreate", msg => {
 })
 
 function reactToMessage(message) {
+  const botReplies = [
+    "ooh, will you look at that 🤩",
+    "nice, i like that",
+    "yummy",
+    "gimme more 🤤",
+    "https://www.youtube.com/watch?v=_6FBfAQ-NDE"
+  ]
+  
   const randomReply = Math.floor(Math.random() * botReplies.length)
-  message.channel.send(botReplies[randomReply])
-  message.react("🍆")
+  try {
+    message.channel.send(botReplies[randomReply])
+    message.react("🍆")
+
+  } catch(err) {
+    console.error(err)
+  }
 }
 
 client.login(process.env.BOT_TOKEN)
